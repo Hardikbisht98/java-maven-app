@@ -94,7 +94,17 @@ jobs:
         with: 
           name: Artifacts
           path: target/*.jar
-          
+
+#==============junit test with maven publish report========
+
+      - name: test with maven
+        run: mvn -B test --file pom.xml
+        
+      - name: publish report
+        uses: actions/upload-artifact@v2
+        with: 
+          name: test report
+          path: target/site/jacoco/
       
   build-macos:
     # The type of runner that the job will run on
