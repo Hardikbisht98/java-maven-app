@@ -90,9 +90,9 @@ jobs:
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Hardikbisht98_java-maven-app
       
       - name: upload a build artifact
-        uses: actions/uploads-artifact@v2.2.4
+        uses: actions/upload-artifact@v2.2.4
         with: 
-          name: artifacts
+          name: Artifacts
           path: target/*.jar
           
       
