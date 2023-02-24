@@ -88,7 +88,13 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 #           run mvn=maven ,-b=batch mode,
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Hardikbisht98_java-maven-app
-              
+      
+      - name: upload a build artifact
+        uses: actions/uploads-artifact@v2.2.4
+        with: 
+          name: artifacts
+          path: target/*.jar
+          
       
   build-macos:
     # The type of runner that the job will run on
