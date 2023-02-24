@@ -29,10 +29,20 @@ jobs:
           distribution: 'temurin'
           java-version: '11'
           cache: 'maven'
-#       - name: sonar Cloud
-#         uses: actions/cache@v1
-#         with: 
-#           path:
+          
+      - name: sonar Cloud
+        uses: actions/cache@v1
+        with: 
+          path: ~/.sonar/cache@v1
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os}}-sonar
+          
+      - name: maven cache
+        uses: actions/cache@v1
+        with: 
+          path: ~/.m2
+          key: ${{ runner.os }}-m2
+          
       - name: build sonar
         env: 
           GITHUB_TOKEN: ${{ secret.GITHUB_TOKEN }}
