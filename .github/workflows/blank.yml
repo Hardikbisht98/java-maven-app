@@ -105,6 +105,11 @@ jobs:
         with: 
           name: test report
           path: target/site/jacoco/
+        
+#         ======================reusable workflow=======================
+  compliance:
+    uses: Hardikbisht98/mygitactionS/.github/workflows/maven-publish.yml@main   
+    
       
   build-macos:
     # The type of runner that the job will run on
